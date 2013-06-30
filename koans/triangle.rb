@@ -14,6 +14,12 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a<=0 || b<=0 || c<=0
+    raise TriangleError, "Invalid length"
+  elsif not (a+b > c && a+c > b && b+c > a)
+    raise TriangleError, "Impossible triangle with no two sides greather than the remaining"
+  end
+  
   if a==b && b==c
     :equilateral
   elsif a != b && b != c && c != a
